@@ -6,9 +6,9 @@ public class BasicTest {
 
 
     public static void main(String[] args) throws SQLException {
-        String URL = "jdbc:oracle:thin:@54.198.155.113:1521:xe";
-        String username = "system";
-        String password = "system";
+        String URL = "jdbc:oracle:thin:@3.87.185.197:1521:xe";
+        String username = "hr";
+        String password = "hr";
         //to establish connection with a database
 
         Connection connection = DriverManager.getConnection(URL, username, password);
@@ -24,6 +24,12 @@ public class BasicTest {
 
         while(resultSet.next()){
             System.out.println(resultSet.getString(2));
+        }
+
+        resultSet.beforeFirst();
+
+        while (resultSet.next()){
+            System.out.println(resultSet.getString("salary"));
         }
 
         resultSet.close();
